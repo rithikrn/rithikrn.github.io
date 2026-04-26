@@ -857,38 +857,65 @@ section:last-child { margin-bottom: 2rem; }
     color: var(--sidebar-accent);
     opacity: 1;
 }
-/* ===== Honors & Awards ===== */
-.award-item{
-  display:grid;
-  grid-template-columns: 90px 1fr;
-  gap: 1.25rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--border, #e5e5e5);
+/* ─── HONORS & AWARDS ─── */
+.award-item {
+    padding: 1.1rem 0 1.1rem 1.4rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
 }
-.award-item:last-child{ border-bottom: none; }
-.award-year{
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  padding-top: 2px;
+
+.award-item:first-child { padding-top: 0; }
+.award-item:first-child::before { top: 0; }
+.award-item:last-child { border-bottom: none; }
+
+.award-item::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    top: 1.1rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.5;
 }
-.award-title{
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--text, #1a1a1a);
-  margin-bottom: 0.2rem;
+
+.award-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
 }
-.award-org{
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-bottom: 0.25rem;
+
+.award-title {
+    font-weight: 600;
+    color: var(--heading);
+    font-size: 1.05rem;
+    line-height: 1.5;
 }
-.award-note{
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  font-style: italic;
+
+.award-date {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
-@media (max-width: 600px){
-  .award-item{ grid-template-columns: 1fr; gap: 0.4rem; }
+
+.award-org {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.award-note {
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+@media (max-width: 860px) {
+    .award-header { flex-direction: column; gap: 0.15rem; }
 }
