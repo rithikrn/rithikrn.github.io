@@ -853,8 +853,42 @@ section:last-child { margin-bottom: 2rem; }
 .sidebar-nav-children a::before {
     content: none;
 }
-
 .sidebar-nav-children a:hover {
     color: var(--sidebar-accent);
     opacity: 1;
+}
+/* ===== Honors & Awards ===== */
+.award-item{
+  display:grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border, #e5e5e5);
+}
+.award-item:last-child{ border-bottom: none; }
+.award-year{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding-top: 2px;
+}
+.award-title{
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text, #1a1a1a);
+  margin-bottom: 0.2rem;
+}
+.award-org{
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+.award-note{
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+@media (max-width: 600px){
+  .award-item{ grid-template-columns: 1fr; gap: 0.4rem; }
 }
