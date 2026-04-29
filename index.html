@@ -621,6 +621,72 @@ chatMessages.appendChild(t);chatMessages.scrollTop=chatMessages.scrollHeight;
 const r=getResponse(text);setTimeout(()=>{t.remove();const b=document.createElement('div');b.className='chat-msg bot';b.innerHTML='<div class="chat-bubble">'+r+'</div>';chatMessages.appendChild(b);chatMessages.scrollTop=chatMessages.scrollHeight},500+Math.random()*500)}
 
 function escapeHtml(t){const d=document.createElement('div');d.textContent=t;return d.innerHTML}
+
+/* ─── Field Notes carousel ─── */
+(function(){
+    const slides = document.querySelectorAll('.fn-slide');
+    const dotsContainer = document.getElementById('fnDots');
+    const prevBtn = document.getElementById('fnPrev');
+    const nextBtn = document.getElementById('fnNext');
+    const captionEl = document.getElementById('fnCaption');
+    if (!slides.length || !captionEl) return;
+
+    let idx = 0;
+    let timer;
+    const INTERVAL = 5000;
+
+    slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'fn-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(d);
+    });
+    const dots = dotsContainer.querySelectorAll('.fn-dot');
+
+    function updateCaption(slide) {
+        const meta = slide.dataset.meta || '';
+        const text = slide.dataset.caption || '';
+        captionEl.innerHTML =
+            '<span class="fn-caption-meta">' + meta + '</span>' +
+            '<span class="fn-caption-text">' + text + '</span>';
+    }
+
+    function goTo(n) {
+        slides[idx].classList.remove('active');
+        dots[idx].classList.remove('active');
+        idx = (n + slides.length) % slides.length;
+        slides[idx].classList.add('active');
+        dots[idx].classList.add('active');
+        updateCaption(slides[idx]);
+        resetTimer();
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        if (slides.length > 1) {
+            timer = setInterval(() => goTo(idx + 1), INTERVAL);
+        }
+    }
+
+    prevBtn.addEventListener('click', () => goTo(idx - 1));
+    nextBtn.addEventListener('click', () => goTo(idx + 1));
+
+    // Pause on hover (desktop)
+    const stage = document.getElementById('fnStage');
+    stage.addEventListener('mouseenter', () => clearInterval(timer));
+    stage.addEventListener('mouseleave', resetTimer);
+
+    // Hide nav arrows if only one slide
+    if (slides.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        dotsContainer.style.display = 'none';
+    }
+
+    resetTimer();
+})();
+
 </script>
 </body>
 </html>
