@@ -1095,3 +1095,143 @@ section:last-child { margin-bottom: 2rem; }
     .exp-bullets li { font-size: 0.95rem; }
     .pub-title { font-size: 1rem; }
 }
+/* ─── FIELD NOTES ─── */
+.fn-intro {
+    font-size: 0.97rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
+    max-width: 660px;
+}
+
+.fn-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.fn-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--bg-warm);
+}
+
+.fn-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.fn-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Blurred backdrop fills the empty space when image aspect ratio
+   doesn't match the 3:2 frame — works for any upload. */
+.fn-bg {
+    position: absolute;
+    inset: -8%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(28px) saturate(1.1) brightness(0.55);
+    z-index: 0;
+}
+
+.fn-slide img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    z-index: 1;
+}
+
+.fn-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(28, 28, 26, 0.55);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: background 0.2s, transform 0.2s;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.fn-nav:hover {
+    background: var(--accent);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.fn-nav.prev { left: 12px; }
+.fn-nav.next { right: 12px; }
+.fn-nav svg { width: 16px; height: 16px; }
+
+.fn-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+    z-index: 3;
+    background: rgba(28, 28, 26, 0.4);
+    padding: 5px 9px;
+    border-radius: 999px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.fn-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.fn-dot.active {
+    background: var(--accent);
+    transform: scale(1.35);
+}
+
+.fn-caption {
+    padding: 1rem 1.3rem 1.1rem;
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.65;
+    border-top: 1px solid var(--border);
+    min-height: 56px;
+}
+
+.fn-caption-meta {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-right: 0.55rem;
+}
+
+@media (max-width: 600px) {
+    .fn-nav { width: 32px; height: 32px; }
+    .fn-caption { font-size: 0.9rem; padding: 0.85rem 1rem; }
+}
