@@ -1,3 +1,7 @@
+# Rithik R Nambiar - Personal Portfolio
+
+Welcome to the repository for my personal portfolio website [2]! 
+
 ## What to Expect
 This website is designed to showcase my journey, experiences, and work. When exploring the live portfolio, you will find:
 
