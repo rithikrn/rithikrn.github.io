@@ -692,6 +692,24 @@ function escapeHtml(t){const d=document.createElement('div');d.textContent=t;ret
     resetTimer();
 })();
 
+// Scroll progress bar
+const _bar = document.createElement('div');
+_bar.className = 'scroll-progress';
+document.body.appendChild(_bar);
+window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    const max = d.scrollHeight - d.clientHeight;
+    _bar.style.width = (max > 0 ? (d.scrollTop / max) * 100 : 0) + '%';
+}, { passive: true });
+
+// Reveal-on-scroll (skips hero; it has its own entrance)
+const _reveals = document.querySelectorAll('section:not(.hero), .footer');
+_reveals.forEach(s => s.classList.add('reveal'));
+const _revObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); _revObs.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+_reveals.forEach(s => _revObs.observe(s));
+    
 </script>
 </body>
 </html>
