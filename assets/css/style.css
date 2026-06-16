@@ -1235,3 +1235,61 @@ section:last-child { margin-bottom: 2rem; }
     .fn-nav { width: 32px; height: 32px; }
     .fn-caption { font-size: 0.9rem; padding: 0.85rem 1rem; }
 }
+
+/* ════════ ENHANCEMENTS (append-only, overrides by source order) ════════ */
+
+/* Scroll progress bar */
+.scroll-progress {
+    position: fixed; top: 0; left: 0;
+    height: 3px; width: 0;
+    background: var(--accent);
+    z-index: 300;
+    transition: width 0.08s linear;
+}
+
+/* Hero entrance */
+.hero h1        { animation: heroIn 0.7s ease both; }
+.hero-subtitle  { animation: heroIn 0.7s 0.08s ease both; }
+.hero-about     { animation: heroIn 0.7s 0.16s ease both; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* Reveal sections on scroll */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* Section-title underline draws in on reveal */
+.reveal .section-title::after { width: 0; transition: width 0.5s 0.15s ease; }
+.reveal.visible .section-title::after { width: 36px; }
+
+/* Interactive rows — experience / education / publications */
+.exp-item, .edu-item, .pub-item {
+    padding-left: 0.9rem;
+    border-left: 2px solid transparent;
+    border-radius: 0 8px 8px 0;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.exp-item:hover, .edu-item:hover, .pub-item:hover {
+    border-left-color: var(--accent);
+    background: var(--accent-light);
+    transform: translateX(3px);
+}
+
+/* News rows respond too */
+.news-item { transition: background 0.2s ease; border-radius: 6px; padding-left: 0.6rem; margin-left: -0.6rem; }
+.news-item:hover { background: var(--accent-light); }
+
+/* Skill tags lift */
+.skill-tag {
+    cursor: default;
+    transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+.skill-tag:hover {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .hero h1, .hero-subtitle, .hero-about { animation: none !important; opacity: 1 !important; transform: none !important; transition: none !important; }
+}
