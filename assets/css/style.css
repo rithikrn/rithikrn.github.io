@@ -1308,7 +1308,7 @@ section:last-child { margin-bottom: 2rem; }
 .chat-suggestions { display: flex; flex-wrap: wrap; gap: 0.45rem; align-self: flex-start; max-width: 100%; }
 .chat-chip {
     font-family: var(--sans); font-size: 0.82rem;
-    padding: 0.4rem 1.25rem; border: 1px solid var(--border);
+    padding: 0.15rem 1.25rem; border: 1px solid var(--border);
     background: var(--bg); color: var(--accent);
     border-radius: 999px; cursor: pointer;
     transition: background 0.18s, border-color 0.18s, transform 0.18s;
