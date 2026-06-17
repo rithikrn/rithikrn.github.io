@@ -1356,3 +1356,6 @@ section:last-child { margin-bottom: 2rem; }
 :root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 @media (max-width: 860px) { .theme-toggle { top: 9px; right: 12px; width: 38px; height: 38px; } }
 
+/* ════════ AMBIENT FLOW FIELD ════════ */
+.flow-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.main { position: relative; z-index: 1; }
