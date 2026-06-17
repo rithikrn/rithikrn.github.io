@@ -789,7 +789,7 @@ _reveals.forEach(s => _revObs.observe(s));
   function readColors(){
     const cs = getComputedStyle(document.documentElement);
     const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-    strokeRGBA = hexA(cs.getPropertyValue('--accent').trim(), dark ? 0.22 : 0.15);
+    strokeRGBA = hexA(cs.getPropertyValue('--accent').trim(), dark ? 0.22 : 0.20);
     fadeRGBA   = hexA(cs.getPropertyValue('--bg').trim(), 0.055);
     clearOnce  = true;
   }
