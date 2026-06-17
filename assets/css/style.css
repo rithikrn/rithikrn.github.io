@@ -3,9 +3,6 @@
     --sidebar-bg: #1C1C1A;
     --sidebar-text: #A8A8A0;
     --sidebar-accent: #EBE6DC;
-    --text: #2E2E2C;
-    --text-muted: #6B6860;
-    --heading: #1A1A18;
     --bg: #F3F3EF;
     --bg-warm: #E9EAE4;
     --card-bg: #FBFBF8;
@@ -14,6 +11,9 @@
     --accent: #4F7D6C;
     --accent-light: #E6EDE8;
     --link: #4F7D6C;
+    --text: #2E2E2C;
+    --text-muted: #6B6860;
+    --heading: #1A1A18;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'Source Sans 3', -apple-system, sans-serif;
     --mono: 'JetBrains Mono', monospace;
@@ -1305,13 +1305,11 @@ section:last-child { margin-bottom: 2rem; }
 .skill-tag, .news-text, .exp-bullets li, .pub-title { font-size: clamp(0.92rem, 0.9rem + 0.15vw, 1rem); }
 
 /* ════════ CHAT SUGGESTION CHIPS ════════ */
-.chat-suggestions { display: flex; flex-wrap: wrap; gap: 0.45rem; align-self: flex-start; max-width: 100%; }
-.chat-chip {
-    font-family: var(--sans); font-size: 0.82rem;
-    padding: 0.4rem 0.85rem; border: 1px solid var(--border);
-    background: var(--bg); color: var(--accent);
-    border-radius: 999px; cursor: pointer;
-    transition: background 0.18s, border-color 0.18s, transform 0.18s;
+.chat-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding: 0.15rem 1.25rem 0.85rem;
 }
 .chat-chip:hover { background: var(--accent-light); border-color: var(--accent); transform: translateY(-1px); }
 
