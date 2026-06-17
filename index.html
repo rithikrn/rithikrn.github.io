@@ -12,6 +12,9 @@
     <script>
     (function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
     </script>
+    <script>
+    const savedTheme = localStorage.getItem('theme'); document.documentElement.dataset.theme = savedTheme || 'dark';
+    </script>
 </head>
 <body>
 
