@@ -1,18 +1,18 @@
 :root {
     --sidebar-w: 280px;
-    --bg: #F3EFE8;
-    --bg-warm: #EDE8DF;
     --sidebar-bg: #1C1C1A;
     --sidebar-text: #A8A8A0;
     --sidebar-accent: #EBE6DC;
     --text: #2E2E2C;
     --text-muted: #6B6860;
     --heading: #1A1A18;
+    --bg: #F4F2EC;
+    --bg-warm: #EBE8E0;
+    --card-bg: #FCFBF8;
+    --tag-bg: #EDEAE2;
+    --border: #DEDAD0;
     --accent: #B85C38;
-    --accent-light: #F2E7DD;
-    --border: #DDD8CE;
-    --card-bg: #FAF8F4;
-    --tag-bg: #EBE7DF;
+    --accent-light: #EDE8DE;
     --link: #B85C38;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'Source Sans 3', -apple-system, sans-serif;
