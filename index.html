@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+    (function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+    </script>
 </head>
 <body>
 
@@ -324,6 +327,7 @@
                 </div>
                 <div class="award-org">International Students &amp; Scholars Office, Iowa State University</div>    
             </div>
+        </div>
     </section>
     <!-- Skills -->
     <section id="skills">
@@ -373,6 +377,14 @@
                 <div class="chat-msg bot">
                     <div class="chat-bubble">Hi! I can answer questions about Rithik's education, research experience, publications, skills, and more. What would you like to know?</div>
                 </div>
+            </div>
+            <div class="chat-suggestions" id="chatSuggestions">
+                 <button class="chat-chip" data-q="What are Rithik's research areas?">Research areas</button>
+                 <button class="chat-chip" data-q="Tell me about his publications">Publications</button>
+                 <button class="chat-chip" data-q="What is his education?">Education</button>
+                 <button class="chat-chip" data-q="What skills and tools does he use?">Skills &amp; tools</button>
+                 <button class="chat-chip" data-q="What is his work experience?">Experience</button>
+                 <button class="chat-chip" data-q="How can I contact him?">Contact</button>
             </div>
             <div class="chat-input-area">
                 <textarea id="chatInput" class="chat-input" placeholder="Ask a question..." rows="1"></textarea>
@@ -617,6 +629,17 @@ chatInput.addEventListener('input',function(){this.style.height='auto';this.styl
 chatInput.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();if(this.value.trim())sendMessage()}});
 chatSend.addEventListener('click',sendMessage);
 
+const _sugg = document.getElementById('chatSuggestions');
+if(_sugg){
+  _sugg.addEventListener('click', (e) => {
+    const chip = e.target.closest('.chat-chip');
+    if(!chip) return;
+    chatInput.value = chip.dataset.q || chip.textContent;
+    chatSend.disabled = false;
+    sendMessage();
+  });
+}
+    
 function sendMessage(){const text=chatInput.value.trim();if(!text)return;
 const u=document.createElement('div');u.className='chat-msg user';u.innerHTML='<div class="chat-bubble">'+escapeHtml(text)+'</div>';
 chatMessages.appendChild(u);chatMessages.scrollTop=chatMessages.scrollHeight;
