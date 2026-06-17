@@ -1364,3 +1364,70 @@ section:last-child { margin-bottom: 2rem; }
 /* Warmer, calmer page tone so the flow field reads and it's gentler on the eyes.
    Dark mode is unaffected — its [data-theme="dark"] rule has higher specificity. */
 :root { --bg: #E8DFCD; }
+
+/* Light-theme hardening: prevents mobile browsers from inheriting dark text colors */
+:root[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  color-scheme: light;
+  --bg: #E8DFCD;
+  --sidebar-bg: #1A1A1A;
+  --sidebar-text: #A8A8A0;
+  --sidebar-accent: #E8E4DC;
+  --text: #2F2E2A;
+  --text-muted: #6F6A60;
+  --heading: #11100E;
+  --accent: #B85C38;
+  --accent-light: #F5EDE4;
+  --border: #D8D0BF;
+  --card-bg: #FFFDF8;
+  --tag-bg: #EDE5D4;
+  --link: #B85C38;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] body,
+:root:not([data-theme="dark"]) body,
+:root[data-theme="light"] .main,
+:root:not([data-theme="dark"]) .main {
+  color: var(--text);
+  background: var(--bg);
+}
+
+:root[data-theme="light"] .section-title,
+:root[data-theme="light"] .hero h1,
+:root[data-theme="light"] .exp-role,
+:root[data-theme="light"] .edu-school,
+:root[data-theme="light"] .pub-title,
+:root[data-theme="light"] .thesis-title,
+:root[data-theme="light"] .chat-header-label,
+:root[data-theme="light"] .contact-value,
+:root:not([data-theme="dark"]) .section-title,
+:root:not([data-theme="dark"]) .hero h1,
+:root:not([data-theme="dark"]) .exp-role,
+:root:not([data-theme="dark"]) .edu-school,
+:root:not([data-theme="dark"]) .pub-title,
+:root:not([data-theme="dark"]) .thesis-title,
+:root:not([data-theme="dark"]) .chat-header-label,
+:root:not([data-theme="dark"]) .contact-value {
+  color: var(--heading);
+}
+
+:root[data-theme="light"] .hero-about,
+:root[data-theme="light"] .news-text,
+:root[data-theme="light"] .exp-bullets li,
+:root[data-theme="light"] .edu-degree,
+:root[data-theme="light"] .skill-tag,
+:root[data-theme="light"] .cert-name,
+:root[data-theme="light"] .chat-msg.bot .chat-bubble,
+:root:not([data-theme="dark"]) .hero-about,
+:root:not([data-theme="dark"]) .news-text,
+:root:not([data-theme="dark"]) .exp-bullets li,
+:root:not([data-theme="dark"]) .edu-degree,
+:root:not([data-theme="dark"]) .skill-tag,
+:root:not([data-theme="dark"]) .cert-name,
+:root:not([data-theme="dark"]) .chat-msg.bot .chat-bubble {
+  color: var(--text);
+}
