@@ -620,6 +620,7 @@ section:last-child { margin-bottom: 2rem; }
 .overlay.open { display: block; }
 
 @media (max-width: 860px) {
+    :root:not([data-theme="dark"]) { --text: #111111; --text-muted: #333333; --heading: #000000; --link: #8F3F22; }
     .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
     .sidebar.open { transform: translateX(0); }
     .mobile-header { display: flex; }
