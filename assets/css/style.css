@@ -866,6 +866,29 @@ section:last-child { margin-bottom: 2rem; }
     .award-icon { width: 36px; height: 36px; }
     .award-icon svg { width: 18px; height: 18px; }
 }
+
+.award-body {
+    flex: 1;
+    min-width: 0; /* Ensures the body fills the full row width */
+}
+
+.award-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: nowrap; /* Stops the year from dropping to the next line */
+    gap: 16px;
+}
+
+.award-title {
+    flex: 1;
+}
+
+.award-date {
+    flex-shrink: 0; /* Prevents long titles from squishing or pushing the year */
+    white-space: nowrap;
+    margin-left: auto;
+}
 /* ─── SPOTLIGHT ─── */
 .spotlight-intro {
     font-size: 0.97rem;
