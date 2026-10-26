@@ -864,7 +864,7 @@ section:last-child { margin-bottom: 2rem; }
 @media (max-width: 600px) {
     .award-header { flex-direction: column; align-items: flex-start; gap: 0.15rem; }
     .award-icon { width: 36px; height: 36px; }
-    .award-icon svg { width: 18px; height: 18px; }
+    .award-icon svg { width: 20px; height: 20px; }
 }
 
 .award-body {
